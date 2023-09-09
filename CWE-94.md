@@ -1,7 +1,7 @@
 
 ---
 
-## Vulnerability Report: `com.phlox.tvwebbrowser`
+## Vulnerability Report: `com.phlox.tvwebbrowser` 'TV Bro' Version <= 2.0.0
 
 ### Vulnerability: JavaScript Code Injection via Intent Handlers
 
