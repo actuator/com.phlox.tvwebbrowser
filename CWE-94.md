@@ -18,7 +18,9 @@ The exposed `com.phlox.tvwebbrowser.activity.main.MainActivity` allows external 
 
 ##### Proof of Concept:
 
-![image](https://github.com/actuator/com.phlox.tvwebbrowser/blob/main/tvwebpoc.gif)
+![poc](https://github.com/actuator/com.phlox.tvwebbrowser/assets/78701239/a1ebc5df-61c0-481d-beac-01b457bff30d)
+
+
 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -47,7 +49,7 @@ An attacker can generate an extremely large file using the takeBlobDownloadData 
 
 #### Arbitrary File Creation: 
 The method allows for the creation of files with arbitrary content on the user's device without user consent.
-Potential for other Exploits: Without a detailed assessment of all methods within the TVBro interface, there may be other exploitable functionalities.
+Potential for other Exploits: Without a detailed assessment of all methods within the TVBro interface.
 
 #### Proof of Concept:
 Below is a sample payload that exploits the vulnerability by attempting to create an extremely large file:
