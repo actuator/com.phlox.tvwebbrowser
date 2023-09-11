@@ -25,7 +25,7 @@ The exposed `com.phlox.tvwebbrowser.activity.main.MainActivity` allows external 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 intent.setComponent(new ComponentName("com.phlox.tvwebbrowser", "com.phlox.tvwebbrowser.activity.main.MainActivity"));
-intent.setData(Uri.parse("https://windows96.net"));
+intent.setData(Uri.parse("http://ampulicidae.com"));
 startActivity(intent);
 ```
 
