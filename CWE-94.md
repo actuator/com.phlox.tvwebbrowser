@@ -5,7 +5,7 @@
 
 ### Vulnerability: Arbitrary File Creation & Download via JavaScript Code Injection in WebView
 
-**Severity**: 🔴 High
+**Severity**: 🔴 Critical
 
 ### Details:
 
