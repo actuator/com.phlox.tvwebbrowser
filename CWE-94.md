@@ -15,7 +15,7 @@ The arbitrary file creation and download risk arises from the ability to generat
 
 **Proof of Concept**:
 
-![Proof of Concept](https://github.com/actuator/com.phlox.tvwebbrowser/assets/78701239/581c4577-3ee5-4277-8fe9-2109921a18ec)
+![Proof of Concept](https://github.com/actuator/com.phlox.tvwebbrowser/blob/main/TVBro.gif)
 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
