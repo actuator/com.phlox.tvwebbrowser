@@ -3,7 +3,7 @@
 
 ## Vulnerability Report: `com.phlox.tvwebbrowser` 'TV Bro' Version <= 2.0.0
 
-### Vulnerability: Arbitrary File Creation & Download via JavaScript Code Injection in WebView
+### Vulnerability: Arbitrary File Creation & Remote JavaScript Code Execution in WebView
 
 **Severity**: 🔴 Critical
 
