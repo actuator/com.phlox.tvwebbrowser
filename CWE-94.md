@@ -1,5 +1,6 @@
 
 ---
+![BOX](https://github.com/actuator/com.phlox.tvwebbrowser/blob/main/box.png)
 
 ## Vulnerability Report: `com.phlox.tvwebbrowser` 'TV Bro' Version <= 2.0.0
 
