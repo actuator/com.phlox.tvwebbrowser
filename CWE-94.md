@@ -8,11 +8,13 @@
 
 **Severity**: 🔴 Critical
 
+Permissions required: None
+
 ### Details:
 
 The `com.phlox.tvwebbrowser` application mishandles external intents through WebView, allowing for both Arbitrary Code Execution (ACE) and, more critically, arbitrary file creation and downloads using specially crafted URIs.
 
-The arbitrary file creation and download risk arises from the ability to generate Base64 encoded strings representing any file content. An attacker can craft these strings and instruct the WebView to decode and save them as files on the user's device without their consent.
+The arbitrary file creation and download risk arises from the ability to generate Base64 encoded strings representing any file content. An attacker can craft these strings and instruct the WebView to decode and save them as files on the user's device without their consent. 
 
 **Proof of Concept**:
 
