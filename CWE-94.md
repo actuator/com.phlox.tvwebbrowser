@@ -25,9 +25,9 @@ intent.setData(Uri.parse("http://ampulicidae.com")); // any URL
 startActivity(intent);
 ```
 
-**CWE Reference**:
-- [CWE-94](https://cwe.mitre.org/data/definitions/94.html): Improper Control of Generation of Code ('Code Injection')
-- [CWE-434](https://cwe.mitre.org/data/definitions/434.html): Unrestricted Upload of File with Dangerous Type 
+### References:
+- [CWE-94: Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html)
+- [CWE-73: External Control of File Name or Path](https://cwe.mitre.org/data/definitions/73.html)
 
 ### Remediation Steps:
 1. Restrict External Intent Handling: In `AndroidManifest.xml`, set the `exported` attribute for the affected activity to `false`.
